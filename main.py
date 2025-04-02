@@ -23,10 +23,13 @@ def total_salary(path):
     return (total, average)
 
   except FileNotFoundError:
+    print('FileNotFoundError')
     return (0,0)
   except PermissionError:
+    print('PermissionError')
     return (0,0)
   except Exception as e:
+    print('Exception')
     return (0,0)
   
 total, average = total_salary("./salary_file.txt")
@@ -47,19 +50,18 @@ def get_cats_info(path):
 
       for el in lines:
         id,name,age = el.split(',')
-        cats_info_libary.append[{'id': id, 'name': name, 'age': age}]
-      
-      print(cats_info_libary)
+        cats_info_libary.append({'id': id, 'name': name, 'age': age})
+
       return cats_info_libary
     
     except FileNotFoundError:
-      print('1')
+      print('FileNotFoundError')
       return []
     except PermissionError:
-      print('2')
+      print('PermissionError')
       return []
     except Exception as e:
-      print('3')
+      print('Exception')
       return []
     
 
