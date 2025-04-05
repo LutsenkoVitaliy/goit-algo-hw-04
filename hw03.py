@@ -8,11 +8,16 @@ from colorama import Fore, Back, Style
 # print(Style.RESET_ALL)
 # print('Це звичайний текст після скидання стилю')
 
-folder_path = Path('./picture')
-
-def path_to_directory(path):
+def folder_structure(directory, indent="  "):
   pass
 
 
-print(folder_path)
-# path_to_directory()
+if __name__ == "__main__":
+  if len(sys.argv) != 2:
+    print(f"Передані параметри не є дійсними, {" ".join(sys.argv)}")
+    print("Приклад: python hw03.py шлях/до/вашої/дирикторії")
+    sys.exit(1)
+
+  path_to_directory = Path(sys.argv[1])
+  print(f"{path_to_directory}/")
+  folder_structure(path_to_directory)
