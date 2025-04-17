@@ -16,10 +16,10 @@ def total_salary(path):
 
       for el in lines:
         name, salary = el.split(',')
-        salaries.append(int(salary))
+        salaries.append(float(salary))
     
     total = sum(salaries)
-    average = round(total / len(salaries))
+    average = round(total / len(salaries)) if salaries else 0
     return (total, average)
 
   except FileNotFoundError:
@@ -29,7 +29,7 @@ def total_salary(path):
     print('PermissionError')
     return (0,0)
   except Exception as e:
-    print('Exception')
+    print(f'Exception {e}')
     return (0,0)
   
 total, average = total_salary("./salary_file.txt")
